@@ -1,31 +1,26 @@
-
 class Bank {
-
-  constructor(){
+  constructor () {
     this.balance = 1000;
     this.recorder = [];
   }
 
-  Deposit (amount,date) {
+  Deposit (amount, date) {
     this.balance += amount;
     this.recorder.push(`\n${date} || ${amount} ||  || ${this.balance}`);
   }
-  
-  Withdraw (amount,date) {
+
+  Withdraw (amount, date) {
     this.balance -= amount;
     this.recorder.push(`\n${date} ||  || ${amount} || ${this.balance}`);
   }
 
-  AccountStat () {
-    let statement = "date || credit || debit || balance";
-    this.recorder.reverse().forEach(string => {
+  AccountStatement () {
+    let statement = 'date || credit || debit || balance';
+    this.recorder.reverse().forEach((string) => {
       statement += string;
     });
     return statement;
   }
-
-
 }
-
 
 module.exports = Bank;

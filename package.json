@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/NicolaCortese/bank-tech-test#readme",
   "dependencies": {
+    "eslint-plugin-jest": "^26.1.5",
     "jest": "^27.5.1"
   },
   "devDependencies": {

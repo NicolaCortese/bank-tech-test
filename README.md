@@ -2,34 +2,72 @@
 
 Today, I'll practice doing a tech test.
 
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
 
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
 
 ## Specification
 
 ### Requirements
 
-* You should be able to interact with your code via a REPL like IRB or Node.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2023  
-**And** a deposit of 2000 on 13-01-2023  
-**And** a withdrawal of 500 on 14-01-2023  
-**When** she prints her bank statement  
-**Then** she would see
+To run the code you will need to have the latest version of Node.js, run the following:
+```
+npm install
+```
+This application runs in a REPL, you can open it by running the code:
+```
+node
+```
+In here you can create an instance of the class Bank (don't forget to load the file first!):
 
 ```
-date || credit || debit || balance
-14/01/2023 || || 500.00 || 2500.00
-13/01/2023 || 2000.00 || || 3000.00
-10/01/2023 || 1000.00 || || 1000.00
+> .load bank.js
+class Bank {
+  constructor () {
+      this.balance = 1000;
+          this.recorder = [];
+            }
+            
+              Deposit (amount, date) {
+                  this.balance += amount;
+                      this.recorder.push(`\n${date} || ${amount} ||  || ${this.balance}`);
+                        }
+                        
+                          Withdraw (amount, date) {
+                              this.balance -= amount;
+                                  this.recorder.push(`\n${date} ||  || ${amount} || ${this.balance}`);
+                                    }
+                                    
+                                      AccountStatement () {
+                                          let statement = 'date || credit || debit || balance';
+                                              this.recorder.reverse().forEach((string) => {
+                                                    statement += string;
+                                                        });
+                                                            return statement;
+                                                              }
+                                                              }
+                                                              
+                                                              module.exports = Bank;
+                                                              
+[class Bank]
+```
+```
+> myAccount = new Bank;
+Bank { balance: 1000, recorder: [] }
+```
+
+And now you can Withdraw and Deposit any amounts you like!
+
+```
+> myAccount.Deposit(500)
+undefined
+> myAccount.Withdraw(250)
+undefined
+```
+Don't forget to check your account statement to check on your finances!
+```
+> myAccount.AccountStatement()
+'date || credit || debit || balance\n' +
+  'undefined ||  || 250 || 1250\n' +
+  'undefined || 500 ||  || 1500'
 ```
 
 
