@@ -1,6 +1,6 @@
 # Bank tech test
 
-Today, you'll practice doing a tech test.
+Today, I'll practice doing a tech test.
 
 For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
 

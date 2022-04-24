@@ -6,11 +6,6 @@ class Bank {
     this.recorder = [];
   }
 
-  
-  Balance () {
-    return this.balance;
-  }
-
   Deposit (amount,date) {
     this.balance += amount;
     this.recorder.push(`\n${date} || ${amount} ||  || ${this.balance}`);
