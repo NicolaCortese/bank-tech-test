@@ -9,7 +9,7 @@ class BankAccount {
   }
 
   PrintStatement () {
-    return this.statement.AccountStatement(this.transactions);
+    return this.statement.Print(this.transactions);
   }
 
   Deposit (amount, date) {
