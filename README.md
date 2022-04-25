@@ -3,7 +3,6 @@
 Today, I'll practice doing a tech test.
 
 
-
 ## Specification
 
 ### Requirements

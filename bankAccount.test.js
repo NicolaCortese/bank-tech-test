@@ -1,28 +1,9 @@
 
-const Bank = require('./bank');
+const BankAccount = require('./bankAccount');
 
 beforeEach(() => {
-  this.bank = new Bank();
-});
-
-describe('returns the initial balance', () => {
-  it('starts with - £1000', () => {
-    expect(this.bank.balance).toEqual(1000);
-  });
-});
-
-describe('expect deposit', () => {
-  it('deposits money - £500', () => {
-    this.bank.Deposit(500);
-    expect(this.bank.balance).toEqual(1500);
-  });
-});
-
-describe('expect withdraw', () => {
-  it('withdraws money - £500', () => {
-    this.bank.Withdraw(500);
-    expect(this.bank.balance).toEqual(500);
-  });
+  const mockModel = 
+  this.bank = new BankAccount();
 });
 
 describe('account statement', () => {
