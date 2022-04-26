@@ -19,13 +19,16 @@
   "homepage": "https://github.com/NicolaCortese/bank-tech-test#readme",
   "dependencies": {
     "eslint-plugin-jest": "^26.1.5",
-    "jest": "^27.5.1"
+    "jest": {
+      "setupFiles": ["jest-date-mock"]
+    }
   },
   "devDependencies": {
     "eslint": "^8.14.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.1.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-promise": "^6.0.0",
+    "jest-date-mock": "^1.0.8"
   }
 }

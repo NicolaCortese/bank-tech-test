@@ -2,7 +2,7 @@ class Transaction {
   create (amount, type, balance) {
     return {
       amount,
-      date: new Date(),
+      date: new Date().toLocaleDateString('en-UK'),
       type,
       balance
     };
