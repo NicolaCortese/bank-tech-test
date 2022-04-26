@@ -1,9 +1,11 @@
 class Transaction {
-  constructor (amount, date, type, balance) {
-    this.amount = amount;
-    this.date = date;
-    this.type = type;
-    this.balance = balance;
+  create (amount, type, balance) {
+    return {
+      amount,
+      date: new Date(),
+      type,
+      balance
+    };
   }
 }
 
