@@ -14,65 +14,36 @@ This application runs in a REPL, you can open it by running the code:
 ```
 node
 ```
-In here you can create an instance of the class BankAccount (don't forget to load the file first!):
+In here you can create an instance of the class BankAccount (don't forget to require the file first!):
 
 ```
-> .load bankAccount.js
-const Transaction = require('./transaction');
-const Statement = require('./statement');
-
-class BankAccount {
-  constructor (statement = new Statement()) {
-      this.transactions = [];
-          this.statement = statement;
-              this.balance = 1000;
-                }
-                
-                  PrintStatement () {
-                      return this.statement.Print(this.transactions);
-                        }
-                        
-                          Deposit (amount, date) {
-                              this.balance += amount;
-                                  const credit = 'Credit';
-                                      this.transactions.push(new Transaction(amount, date, credit, this.balance));
-                                        }
-                                        
-                                          Withdraw (amount, date) {
-                                              // add logic to block if there isn't enough cash
-                                                  this.balance -= amount;
-                                                      const debit = 'Debit';
-                                                          this.transactions.push(new Transaction(amount, date, debit, this.balance));
-                                                            }
-                                                            }
-                                                            
-                                                            module.exports = BankAccount;
-                                                            
-[class BankAccount]
-```
-```
-> myAccount = new BankAccount
+> const BankAccount = require('./src/bankAccount.js');
+undefined
+> myAccount = new BankAccount();
 BankAccount {
-  transactions: [],
+  recordTransactions: [],
   statement: Statement {},
+  transaction: Transaction {},
   balance: 1000
 }
+> 
 ```
 
-And now you can Withdraw and Deposit any amounts you like!
+And now you can withdraw and deposit any amounts you like!
 
 ```
-> myAccount.Deposit(500,"01/01/2022")
-undefined
-> myAccount.Withdraw(500,"02/01/2022")
-undefined
+> myAccount.deposit(150);
+150
+> myAccount.withdraw(500);
+500
 ```
 Don't forget to check your account statement to check on your finances!
 ```
-> myAccount.PrintStatement()
+> myAccount.printStatement();
 'date || credit || debit || balance\n' +
-  '02/01/2022 ||  || 500 || 1000\n' +
-  '01/01/2022 || 500 ||  || 1500'
+  '27/04/2022 ||  || 500.00 || 650.00\n' +
+  '27/04/2022 || 150.00 ||  || 1150.00'
+> 
 ```
 
 
