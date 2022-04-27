@@ -14,15 +14,16 @@ class BankAccount {
   }
 
   deposit (amount) {
-    this.amountValidation(amount, (errorMsg) => {
+    amount = this.amountValidation(amount, (errorMsg) => {
       throw new Error(errorMsg);
     });
     this.balance += amount;
     this.recordTransactions.push(this.transaction.create(amount, 'Credit', this.balance));
+    return amount;
   }
 
   withdraw (amount) {
-    this.amountValidation(amount, (errorMsg) => {
+    amount = this.amountValidation(amount, (errorMsg) => {
       throw new Error(errorMsg);
     });
     if (amount > this.balance) {
@@ -30,11 +31,16 @@ class BankAccount {
     }
     this.balance -= amount;
     this.recordTransactions.push(this.transaction.create(amount, 'Debit', this.balance));
+    return amount;
   }
 
   amountValidation (amount, errorCallback) {
-    if (amount < 0) {
-      errorCallback('You cannot withdraw a negative amount');
+    if (typeof amount !== 'number') {
+      errorCallback('Incorrect data type has been submitted');
+    } else if (amount < 0) {
+      errorCallback('You cannot insert a negative amount');
+    } else {
+      return Math.round((amount) * 100) / 100;
     }
   }
 }
